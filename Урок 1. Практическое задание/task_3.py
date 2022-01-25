@@ -22,7 +22,7 @@ from random import randit
 
 # Первый вариант N(nlog(n))
 
-def sorted_2(base_company):
+def sorted_1(base_company):
     list_from_dict = list(base_company.items())
     list_from_dict.sort(key=lambda i: i[1], reverse=True)
     for i in range(3):
@@ -30,7 +30,7 @@ def sorted_2(base_company):
 
 
 # Второй вариант O(n)
-def sorted_(base_company):
+def sorted_2(base_company):
     input_max = {}
     list_d = dict(base_company)
     for i in range(3):
@@ -41,6 +41,6 @@ def sorted_(base_company):
 
 sorted_1(base_company)
 sorted_2(base_company)
-sorted_3(base_company)
+
 
 
