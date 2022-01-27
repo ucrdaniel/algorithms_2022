@@ -27,3 +27,31 @@
 Вы вместо трехзначного числа ввели строку (((. Исправьтесь
 Введите операцию (+, -, *, / или 0 для выхода):
 """
+
+import operator
+
+list_operators = {
+    "-": operator.sub,
+    "*": operator.mul,
+    "/": operator.truediv}
+
+def calculator (a, b, z):
+    a =  int(input("Введите первое число: "))
+    b =  int(input("Введите второе число: "))
+
+    if b == 0:
+        print ("Ошибка ввода, нельзя делить на 0 ")
+        b =  int(input("Введите второе число: "))
+
+    z = input("Введите знак умножения *, деления / или вычитания :")
+
+    while z !='0' and z not in list_operators :
+        print ("Ошибка ввода")
+        z = input("Введите знак умножения *, деления / или вычитания :")
+
+    if z == '0':
+        print ('Конец игры')
+    else:
+        print (list_operators[z](a,b))
+        return (str(calculator (a, b, z)))
+print (calculator (a, b, z))
