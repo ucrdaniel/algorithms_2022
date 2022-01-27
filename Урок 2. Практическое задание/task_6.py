@@ -26,4 +26,4 @@ def recur_method(count, numb):
         recur_method(count + 1, numb)
 
 
-recur_method(1, random.randit(0, 100))
+recur_method(1, random.randint(0, 100))
