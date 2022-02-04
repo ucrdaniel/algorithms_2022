@@ -13,6 +13,9 @@
 """
 
 
+from timeit import timeit
+from cProfile import run
+
 def revers(enter_num, revers_num=0):
     if enter_num == 0:
         return
@@ -35,3 +38,25 @@ def revers_3(enter_num):
     enter_num = str(enter_num)
     revers_num = enter_num[::-1]
     return revers_num
+
+
+enter_num = 1234567890
+
+print(
+    timeit(
+        f'revers({enter_num})',
+        globals=globals()))
+
+print(
+    timeit(
+        f'revers_2({enter_num})',
+        globals=globals()))
+
+print(
+    timeit(
+        f'revers_3({enter_num})',
+        globals=globals()))
+
+run("revers(enter_num)")
+run("revers_2(enter_num)")
+run("revers_3(enter_num)")
