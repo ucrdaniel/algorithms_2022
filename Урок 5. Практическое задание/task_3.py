@@ -25,3 +25,114 @@ appendleft, popleft, extendleft дека и соответствующих им 
 для того, чтобы снизить погрешность, желательно операции по каждой ф-ции
 (append, pop и т.д.) проводить в циклах
 """
+
+
+from collections import deque
+from timeit import timeit
+
+# Заполнение списка
+some_lst = [i for i in range(10 ** 5)]
+
+# Заполнение очереди
+some_deque = deque([i for i in range(10 ** 5)])
+
+n = 10 ** 4
+
+
+# append
+def append_list(some_lst):
+    for i in range(n):
+        some_lst.append(i)
+    return some_lst
+
+
+# append
+def append_deque(some_deque):
+    for i in range(n):
+        some_deque.append(i)
+    return some_deque
+
+
+# pop
+def pop_list(some_lst):
+    for i in range(n):
+        some_lst.pop()
+    return some_lst
+
+
+# pop
+def pop_deque(some_deque):
+    for i in range(n):
+        some_deque.pop()
+    return some_deque
+
+
+# extend
+def extend_list(some_lst):
+    for i in range(n):
+        some_lst.extend([1, 2, 3])
+    return some_lst
+
+
+# extend
+def extend_list(some_deque):
+    for i in range(n):
+        some_deque.extend([1, 2, 3])
+    return some_deque
+
+
+
+# insert
+def appendleft_list(some_lst):
+    for i in range(n):
+        some_lst.insert(0, i)
+    return some_lst
+
+
+# appendleft
+def appendleft_deque(some_deque):
+    for i in range(n):
+        some_deque.appendleft(i)
+    return some_deque
+
+
+# pop
+def popleft_list(some_lst):
+    for i in range(n):
+        some_lst.pop(i)
+    return some_lst
+
+
+# popleft
+def popleft_deque(some_deque):
+    for i in range(n):
+        some_deque.popleft()
+    return some_deque
+
+
+# insert
+def extendleft_list(some_lst):
+    for i in range(n):
+        some_lst.insert(0, [1, 2, 3])
+    return some_lst
+
+
+# extend
+def extendleft_deque(some_deque):
+    for i in range(n):
+        some_deque.extendleft([1, 2, 3])
+    return some_deque
+
+
+
+def get_elem_list(some_lst):
+    for i in range(n):
+        some_lst[i] = i
+    return some_lst
+
+
+def get_elem_deque(some_deque):
+    for i in range(n):
+        some_deque[i] = i
+    return some_deque
+
