@@ -30,3 +30,30 @@
 
 Это файл для пятого скрипта
 """
+
+
+from memory_profiler import profile
+
+@profile
+def func():
+
+    a = list(range(500000))
+
+    min_num = a[0]
+    min_num2 = a[1]
+
+    if min_num > min_num2:
+        min_num, min_num2 = min_num2, min_num
+
+    for i in range(len(a)):
+        if a[i] < min_num:
+            min_num2 = min_num
+            min_num = a[i]
+        elif a[i] < min_num2:
+            min_num2 = a[i]
+    del a
+    print("Два наименьших элемента:", min_num, min_num2)
+    print(f"Два наименьших элемента: {min_num}, {min_num2}")
+
+
+func()

@@ -30,3 +30,34 @@
 
 Это файл для четвертого скрипта
 """
+
+
+from memory_profiler import profile
+
+
+@profile
+def recursion(length):
+    def sum_series_numbers(n, elem=1):
+        if n <= 0:
+            return 0
+        return elem + sum_series_numbers(n - 1, -elem / 2)
+    print(
+        f'Сумма последовательности из {length} элементов равна '
+        f'{sum_series_numbers(length)}')
+
+
+@profile
+def for_in(length_val):
+    elem = 1
+    amount = 0
+    for i in range(length_val):
+        amount += elem
+        elem = -elem / 2
+    print(f'Сумма последовательности из {length_val} элементов равна {amount}')
+
+
+length = 900
+
+
+for_in(length)
+recursion(length)
