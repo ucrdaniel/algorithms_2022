@@ -15,3 +15,42 @@
 
 В конце сделайте аналитику какой трех из способов оказался эффективнее
 """
+
+
+from random import randint
+from timeit import timeit
+
+
+def another_way(lst_obj):
+    temp_list = lst_obj
+    for i in range(len(lst_obj) // 2):
+        temp_list.remove(max(temp_list))
+    return max(temp_list)
+
+
+m = 10
+orig_list = [randint(0, 100) for i in range(2 * m + 1)]
+
+print(
+    timeit(
+        "another_way(orig_list[:])",
+        globals=globals(),
+        number=100))
+
+m = 100
+orig_list = [randint(0, 100) for i in range(2 * m + 1)]
+
+print(
+    timeit(
+        "another_way(orig_list[:])",
+        globals=globals(),
+        number=100))
+
+m = 1000
+orig_list = [randint(0, 100) for i in range(2 * m + 1)]
+
+print(
+    timeit(
+        "another_way(orig_list[:])",
+        globals=globals(),
+        number=100))
